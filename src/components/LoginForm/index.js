@@ -6,6 +6,7 @@ class LoginForm extends Component {
   state = {
     username: '',
     password: '',
+    isSuccessful: false,
   }
 
   onSubmitSuccess = () => {
@@ -25,12 +26,12 @@ class LoginForm extends Component {
     }
 
     const response = await fetch(url, options)
-    const data = await response.json()
+    // const data = await response.json()
 
     if (response.ok === true) {
       this.onSubmitSuccess()
     } else {
-      msg = 'Username not found!'
+      this.setState({isSuccessful: true})
     }
   }
 
@@ -43,7 +44,9 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {username, password} = this.state
+    const {username, password, isSuccessful} = this.state
+
+    const errorMsg = isSuccessful ? '*Username is not found!' : ''
 
     return (
       <div className="loginform-container">
@@ -92,6 +95,7 @@ class LoginForm extends Component {
           <button type="submit" className="login-btn">
             Login
           </button>
+          <p className="error-msg">{errorMsg}</p>
         </form>
       </div>
     )
