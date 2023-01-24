@@ -1,0 +1,38 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-heading {
+  font-size: 26px;
+  font-family: 'Roboto';
+  color: #1e293b;
+  font-weight: 700;
+  text-align: center;
+}
+
+.banner-img {
+  height: 150px;
+  width: 140px;
+}
+
+.para {
+  font-size: 11px;
+  font-family: 'Roboto';
+  color: #64748b;
+  font-weight: 500;
+  text-align: center;
+}
+
+.shop-now-btn {
+  background-color: #0967d2;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 10px;
+  padding: 8px;
+  width: 150px;
+  border: none;
+  outline: none;
+}
