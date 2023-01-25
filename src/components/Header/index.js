@@ -22,14 +22,14 @@ const Header = () => (
         alt="website logo"
         className="main-logo"
       />
-      <div className="nav-container-text">
-        <p className="nav-item-text">Home</p>
-        <p className="nav-item-text">Product</p>
-        <p className="nav-item-text">Cart</p>
+      <ul className="nav-container-text">
+        <li className="nav-item-text">Home</li>
+        <li className="nav-item-text">Products</li>
+        <li className="nav-item-text">Cart</li>
         <button type="button" className="logout-btn-md">
           Logout
         </button>
-      </div>
+      </ul>
     </div>
 
     <div className="nav-container-icon">
