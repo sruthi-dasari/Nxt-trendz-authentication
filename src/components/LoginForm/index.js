@@ -6,12 +6,12 @@ class LoginForm extends Component {
   state = {
     username: '',
     password: '',
-    isSuccessful: false,
+    errorMsg: '',
   }
 
   onSubmitSuccess = () => {
     const {history} = this.props
-    history.push('/')
+    history.replace('/')
   }
 
   onSubmit = async event => {
@@ -26,12 +26,13 @@ class LoginForm extends Component {
     }
 
     const response = await fetch(url, options)
-    // const data = await response.json()
+    const data = await response.json()
+    console.log(data)
 
     if (response.ok === true) {
       this.onSubmitSuccess()
     } else {
-      this.setState({isSuccessful: true})
+      this.setState({errorMsg: data.error_msg})
     }
   }
 
@@ -44,16 +45,14 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {username, password, isSuccessful} = this.state
-
-    const errorMsg = isSuccessful ? '*Username is not found!' : ''
+    const {username, password, errorMsg} = this.state
 
     return (
       <div className="loginform-container">
         <img
           src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
           alt="website logo"
-          className="website-logo"
+          className="website-logo-sm"
         />
         <img
           src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png"
@@ -61,6 +60,11 @@ class LoginForm extends Component {
           className="website-login-img"
         />
         <form onSubmit={this.onSubmit} className="form-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+            alt="website logo"
+            className="website-logo-md"
+          />
           <div className="label-input-box">
             <label htmlFor="username" className="input-title">
               USERNAME
